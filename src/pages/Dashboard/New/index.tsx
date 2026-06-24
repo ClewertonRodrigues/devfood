@@ -2,7 +2,7 @@ import { ChangeEvent, useState, useContext } from "react";
 import { Link } from "react-router";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { ProductsContext } from "../../../contexts/ProductsContext";
-import { Input } from "../../../components/input";
+import { Input } from "../../../components/Input";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
