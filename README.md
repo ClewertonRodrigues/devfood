@@ -125,7 +125,7 @@ Também foi implementada uma verificação automática para remover produtos do 
 
 ### Acesse o projeto online:
 
-👉 LINK_DO_PROJETO
+👉 https://devfood-six.vercel.app
 
 ---
 
