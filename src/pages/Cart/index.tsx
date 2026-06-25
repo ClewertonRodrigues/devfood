@@ -47,7 +47,7 @@ export function Cart() {
           </div>
         )}
 
-        <main className="mt-5 flex flex-col lg:flex-row gap-5">
+        <main className="mt-5 flex flex-col lg:flex-row gap-5 overflow-hidden">
           <motion.section 
             className="w-full"
             initial={{ opacity: 0, x: -50 }}
