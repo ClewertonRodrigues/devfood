@@ -66,11 +66,10 @@ export function Menu() {
 
         <AnimatePresence mode="wait">
           <motion.section
-            key={filtro}
-            initial={{ opacity: 0.96 }}
+            key="grid"
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0.96 }}
-            transition={{ duration: 0.2 }}
+            exit={{ opacity: 0 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-3 px-3 pb-5"
           >
             {activeFoods
@@ -80,10 +79,7 @@ export function Menu() {
                   className="bg-white shadow-md rounded-md overflow-hidden min-h-[300px] flex flex-col group"
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.2,
-                    ease: "easeOut",
-                  }}
+                  transition={{ duration: 0.2 }}
                 >
                   <div className="overflow-hidden w-full h-56">
                     <img
@@ -128,25 +124,31 @@ export function Menu() {
                 </motion.article>
               ))}
           </motion.section>
+
+
+          {activeFoods.length === 0 &&
+            loading && (
+              <p className="w-full">
+                <FiLoader
+                  size={50}
+                  color="#FA2828"
+                  className="mx-auto animate-spin"
+                />
+              </p>
+            )}
+
+          {activeFoods.length === 0 &&
+            !loading && (
+              <motion.p
+                key="empty"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-center text-xl md:text-2xl text-red-400"
+              >
+                Sem itens no momento!
+              </motion.p>
+            )}
         </AnimatePresence>
-
-        {activeFoods.length === 0 &&
-          loading && (
-            <p className="w-full">
-              <FiLoader
-                size={50}
-                color="#FA2828"
-                className="mx-auto animate-spin"
-              />
-            </p>
-          )}
-
-        {activeFoods.length === 0 &&
-          !loading && (
-            <p className="text-center text-xl md:text-2xl text-red-400">
-              Sem itens no momento!
-            </p>
-          )}
       </div>
     </main>
   );
