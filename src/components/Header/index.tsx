@@ -13,6 +13,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { CartContext } from "../../contexts/CartContext";
 
 import { AnimatePresence, motion } from "motion/react";
+import toast from "react-hot-toast";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,6 +50,8 @@ export function Header() {
 
   async function handleLogout() {
     await signOut(auth);
+    setIsMenuOpen(false)
+    toast.success("Você saiu da sua conta!")
   }
 
   return (
