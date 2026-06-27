@@ -19,6 +19,8 @@ export function Menu() {
     useContext(ProductsContext);
   const { addFoodCart } = useContext(CartContext);
 
+  const activeFoods = filteredFoods.filter(item => item.status === true);
+
   return (
     <main className="bg-[#f8f8f8] min-h-screen w-full flex justify-center ">
       <div className="pt-25 w-full max-w-6xl">
@@ -71,8 +73,7 @@ export function Menu() {
             transition={{ duration: 0.2 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-3 px-3 pb-5"
           >
-            {filteredFoods
-              .filter((item) => item.status === true)
+            {activeFoods
               .map((item) => (
                 <motion.article
                   key={item.id}
@@ -129,7 +130,7 @@ export function Menu() {
           </motion.section>
         </AnimatePresence>
 
-        {filteredFoods.filter((item) => item.status === true).length === 0 &&
+        {activeFoods.length === 0 &&
           loading && (
             <p className="w-full">
               <FiLoader
@@ -140,7 +141,7 @@ export function Menu() {
             </p>
           )}
 
-        {filteredFoods.filter((item) => item.status === true).length === 0 &&
+        {activeFoods.length === 0 &&
           !loading && (
             <p className="text-center text-xl md:text-2xl text-red-400">
               Sem itens no momento!
