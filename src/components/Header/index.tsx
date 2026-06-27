@@ -21,6 +21,21 @@ export function Header() {
   const { totalAmount } = useContext(CartContext);
 
   useEffect(() => {
+    function handleRezise(e: MediaQueryListEvent){
+      if(e.matches){
+        setIsMenuOpen(false)
+      }
+    }
+
+    let windowWidth = matchMedia("(min-width: 768px)");
+    windowWidth.addEventListener("change", handleRezise)
+
+    return () => {
+      windowWidth.addEventListener("change", handleRezise)
+    }
+  }, [])
+
+  useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
