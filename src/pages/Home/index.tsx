@@ -75,7 +75,7 @@ export function Home() {
             icon={<IoLocationOutline color="#fa851b" size={27} />}
             bgIcon="bg-[#fce1c0]"
             title="Cobertura Ampla"
-            description="Atendemos toda a região com excelência. Onde quer que você eseja, levamos sabor até você!"
+            description="Atendemos toda a região com excelência. Onde quer que você esteja, levamos sabor até você!"
           />
           <CardInfo
             icon={<FaStar color="#99721c" size={24} />}
